@@ -5,9 +5,6 @@ import pickle
 
 
 
-
-
-
 #Random Moves no Q-learning implemented
 def run(episodes, render=False):
 
@@ -37,7 +34,7 @@ def run(episodes, render=False):
                 action = np.argmax(q_table[state]) # Choose action with highest Q-value for current state
             else: # Explore
                 action = env.action_space.sample()
-                
+
             new_state, reward, terminated, truncated,_ = env.step(action)
 
             q_table[state, action] = q_table[state, action] + learning_rate * (
